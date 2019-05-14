@@ -1,0 +1,87 @@
+<html>
+<head>
+<script language="JavaScript">
+<!-- hide this script from old browsers
+    //Bank 
+    var bank = 0;
+    var bank_name = "The Bank of Pacycephalosaurus";
+    var bank_interestPolicy = 0;
+    var bank_interestPolicy_interestAmount = 2;
+    var bank_ineterestPolicy_interest = function (amount) {
+        var interestGain = bank_contents_money / bank_interestPolicy_interestAmount;
+        var bank_contents_money = bank_contents_money + interestGain;
+    };
+
+    var bank_contents = 0;
+    var bank_contents_money = 0;
+    var bank_contents_items = "None";
+    var bank_withdrawAmount = "0";
+    var bank_depositAmount = "0";
+    var bank_withdraw = function (amount) {
+        //Check if there is money
+        if (bank_contents_money < amount) {
+            alert("Withdraw DENIED Insufficient Funds");
+        } else {
+            alert("Sufficient Funds ... Transfering Funds ...");
+            var transPlace = confirm("Transfer funds to " + wallet_name + "?");
+            if (transPlace === false) {
+                alert("Transfer Location Unknown :: 404 Not Found :: Please Try Again");
+            } else {
+                alert("Transfering Funds ... Transfer Succesful!");
+                form.bank_money.value = bank_contents_money - amount;
+                wallet_money = wallet_money + amount;
+            }
+        }
+    };
+    var bank_deposit = function (amount) {
+        //Check if there is money
+        if (wallet_money < amount) {
+            alert("Deposit DENIED Insufficient Funds");
+        } else {
+            alert("Sufficient Funds ... Transfering Funds ...");
+            var transPlace = confirm("Transfer funds to " + bank_name + "?");
+            if (transPlace === false) {
+                alert("Transfer Location Unknown :: 404 Not Found :: Please Try Again");
+            } else {
+                alert("Transfering Funds ... Transfer Succesful!");
+                alert("The Amount: " + amount);
+                form.bank_money.value = bank.contents_money + amount;
+                bank_contents_money = bank.contents_money + amount;
+                alert("The Amount: " + amount);
+                bank_opening(amount);
+            }
+        }
+    };
+    var bank_opening = function (money) {
+        alert("You have $" + bank_contents_money + " in your bank.");
+        $.cookie("bankMoney", money, {
+            expires: 1
+        });
+        alert($.cookie("example"));
+    };
+
+    var wallet = 0;
+    var wallet_name = "Wallet of You!";
+    var wallet_money = 0;
+    bank_opening();
+// done hiding from old browsers -->
+</script>
+</head>
+<body>
+<form>
+<h2>Bamk</h2>
+Enter a number to withdraw or deposit: 
+<INPUT NAME="deposit" VALUE="0" MAXLENGTH="15" SIZE=15>
+  <p>
+<INPUT NAME="depos" VALUE="Deposit" TYPE=BUTTON 
+onClick=bank_deposit(deposit.form)>
+<p>
+  <p>
+<INPUT NAME="withd" VALUE="Withdraw" TYPE=BUTTON 
+onClick=bank_withdraw(this.form)>
+<p>
+The amount in a bank is: 
+<INPUT NAME="bank_contents_money" READONLY SIZE=15>
+</form>
+</body>
+</html>
